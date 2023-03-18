@@ -1,0 +1,10 @@
+.Main {
+  display: flex;
+  justify-content: center;
+}
+
+.p {
+  height: 90px;
+  width: 80px;
+  color: silver;
+}
