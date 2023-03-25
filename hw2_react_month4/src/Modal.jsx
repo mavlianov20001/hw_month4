@@ -4,12 +4,8 @@ import Button from './Button'
 import Input from './Input';
 
 
-const Modal = ({ handleShow }) => {
-    const [ text, setText ]  = useState();
-    const handleChangeText = (textInput) => {
-        setText(textInput)
-        console.log(text, 'text');
-    }
+const Modal = ({ handleShow, addFunction, addTask }) => {
+
   return (
     <React.Fragment>
     <div className={classes.modalWrapper}></div>
@@ -18,9 +14,9 @@ const Modal = ({ handleShow }) => {
     <input 
     name='add'
      placeholder='Добавьте таск'
-     onChange={(event) => handleChangeText(event.target.value)}
+     onChange={(event) => addFunction(event.target.value)}
       />
-    <Button>Добавить таск</Button>
+    <Button handleClick={addTask} >Добавить таск</Button>
     <Input placeholder={"input"} />
     </div>
     </React.Fragment>

@@ -1,8 +1,8 @@
 import React from 'react'
 
 const Input = ({placeholder, name, handleChange}) => {
-  return <> <input onChange={handleChange} type="text" placeholder={placeholder} name={name} />
-  
+  return <>
+  <input onChange={handleChange} type="text" placeholder={placeholder} name={name} />
   </>
 
 }
