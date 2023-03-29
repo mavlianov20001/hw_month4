@@ -9,6 +9,12 @@ const TodoCard = ({
    iEdit
   }) => {
     const [ newTitle ,setNewTitle ] = useState(task.title);
+
+    const editHandler = () => {
+      handleEdit({...task, title: newTitle});
+      handleSelectCurrent(null)
+    }
+
     if(iEdit) {
       return <div>
        <input 
@@ -16,13 +22,13 @@ const TodoCard = ({
       value={newTitle}
       onChange={(event) => setNewTitle(event.target.value)}
 />
-      <button onClick={() => handleEdit({...task, title: newTitle})} >Save</button>
-      <button >Cancel</button>
+      <button onClick={editHandler} >Save</button>
+      <button onClick={() => handleSelectCurrent(null)} >Cancel</button>
       </div>
     }
   return (
     <div className={classes.todoCard}>
-        <h5>{task.title}</h5>
+        <h5 className={task.completed && classes.completed}>{task.title}</h5>
         <button onClick={() => handleSelectCurrent(task.id)}>Edit</button>
         <button onClick={() => handleDone(task.id)}>Done</button>
         <button onClick={() => handleDelete(task.id)}>Delete</button>

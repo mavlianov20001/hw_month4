@@ -62,17 +62,16 @@ const handleDone = (id) => {
   })
 setTasks([...tasks])
 }
-const handleEdit = (editTodo) => {
+const handleEdit = (editedTodo) => {
 
- const editList = tasks.map(task => {
-    if(task.id === editTodo.id) {
-      return editTodo
+  const editedList = tasks.map(task => {
+    if(task.id === editedTodo.id) {
+      return editedTodo
     }
     return task
   })
-  setTasks([...editList])
+  setTasks(editedList)
 } 
-
 // useEffect(() => {
 //   console.log('log useEffect');
 // }, [ tasks,show ])
