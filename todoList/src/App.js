@@ -72,9 +72,30 @@ const handleEdit = (editedTodo) => {
   })
   setTasks(editedList)
 } 
-// useEffect(() => {
-//   console.log('log useEffect');
-// }, [ tasks,show ])
+
+
+
+
+useEffect(() =>{
+  const myLocalList = JSON.parse(localStorage.getItem("tasks"))
+  if (myLocalList.length !== 0) {
+    setTasks(myLocalList)
+  }
+  setTasks(myLocalList)
+}, [] )
+
+
+useEffect(() => {
+  localStorage.setItem("tasks", JSON.stringify(tasks) )
+}, [tasks])
+
+  const deleteAll = (()=>{
+    setTasks([])
+    localStorage.clear()
+
+  })
+
+
 
   return (
     <div className="App">
@@ -87,6 +108,7 @@ const handleEdit = (editedTodo) => {
         Открыть модалку
       </Button>
 
+        {tasks.length !== 0 ? <Button  handleClick={deleteAll}>delete all</Button> : ""}
       
       {/* task list */}
   <TaskList 
